@@ -2,7 +2,7 @@
 
 ///////////////////////////////////////
 // Modal window
-
+/*
 const modal = document.querySelector('.modal');
 const overlay = document.querySelector('.overlay');
 const btnCloseModal = document.querySelector('.btn--close-modal');
@@ -243,14 +243,110 @@ console.log(logo.className);
 logo.classList.add('umid');
 */
 
-class FootballPlayer {
-  constructor(name, number) {
+// class FootballPlayer {
+//   constructor(name, number) {
+//     this.name = name;
+//     this.number = number;
+//   }
+// }
+// let ap = new Array(2, 3, 4, 5);
+// let niyozbek = new FootballPlayer('Niyozbek', 18);
+// let jonibek = new FootballPlayer('Jonibek', 19);
+// console.log(jonibek, niyozbek);
+// console.log(ap);
+
+// const Person = function (ism, yosh) {
+//   this.ism = ism;
+//   Person.apply;
+// };
+/*
+const Person = function (ism, yosh) {
+  this.ismi = ism;
+  this.yosh = yosh;
+};
+
+Person.prototype.hisobla = function () {
+  return 2022 - this.yosh;
+};
+
+const Teacher = function (ism, yosh, oylik, fan) {
+  Person.call(this, ism, yosh);
+  this.oylik = oylik;
+  this.fan = fan;
+};
+Teacher.prototype = Object.create(Person);
+Teacher.prototype.oylikHisobla = function () {
+  return this.oylik / 11000;
+};
+const birinchi = new Teacher('Zafar', 40, 3000000, 'IT');
+console.log(birinchi.__proto__.__proto__);
+*/
+
+// class Person {
+//   constructor(ism, yosh) {
+//     this.ism = ism;
+//     this.yosh = yosh;
+//   }
+
+//   hisobla() {
+//     return 2022 - this.yosh;
+//   }
+// }
+
+// class Teacher extends Person {
+//   constructor(ism, yosh, oylik, fan) {
+//     super(ism, yosh);
+//     this.oylik = oylik;
+//     this.fan = fan;
+//   }
+// }
+// const birinchi = new Teacher('Zafar', 40, 3000000, 'IT');
+// console.log(birinchi);
+/*
+const Person = {
+  hisobla() {
+    return 2022 - this.yosh;
+  },
+  qush(ism, yosh) {
+    this.ism = ism;
+    this.yosh = yosh;
+  },
+};
+
+const Student = Object.create(Person);
+Student.qush = function (ism, yosh, facultet) {
+  Person.qush.call(this, ism, yosh);
+  this.facultet = facultet;
+};
+const jony = Object.create(Student);
+
+Student.qush('A', 'B', 'cc');
+jony.qush('A', 'B', 'cc');
+console.log(jony);
+console.log(Student);
+*/
+class Bank {
+  #pin;
+  constructor(name, age, pin) {
     this.name = name;
-    this.number = number;
+    this.age = age;
+    this.#pin = pin;
+  }
+
+  #pinUzgartir(val) {
+    this.#pin = val;
+  }
+  uzgartir(val) {
+    this.#pinUzgartir(val);
   }
 }
-let ap = new Array(2, 3, 4, 5);
-let niyozbek = new FootballPlayer('Niyozbek', 18);
-let jonibek = new FootballPlayer('Jonibek', 19);
-console.log(jonibek, niyozbek);
-console.log(ap);
+
+class Bank2 extends Bank {
+  constructor(name, age, pin) {
+    super(name, age, pin);
+  }
+}
+
+let me = new Bank2('jonibek', 20, 1111);
+me.uzgartir(2222);
+console.log(me);
