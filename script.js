@@ -325,6 +325,9 @@ jony.qush('A', 'B', 'cc');
 console.log(jony);
 console.log(Student);
 */
+
+/*
+
 class Bank {
   #pin;
   constructor(name, age, pin) {
@@ -350,3 +353,69 @@ class Bank2 extends Bank {
 let me = new Bank2('jonibek', 20, 1111);
 me.uzgartir(2222);
 console.log(me);
+
+*/
+
+/*
+function anagrams(word, words) {
+  let arr1 = word.split('').sort();
+  let str = arr1.join('');
+  let arr = [];
+  let count = 0;
+  for (let i = 0; i < words.length; i++) {
+    count = words[i].split('').sort();
+    if (str == count.join('')) {
+      arr.push(words[i]);
+    }
+  }
+  return arr;
+}
+
+console.log(anagrams('abba', ['aabb', 'abcd', 'bbaa', 'dada']));
+*/
+// let a = 499942 ** (898102 ** 846073);
+// console.log(a);
+/*
+function domainName(url) {
+  let arr = url.split('//');
+  let arr1 = [];
+  if (arr.length > 1) {
+    arr1 = arr[1].split('.');
+    if (arr1[0] == 'www') {
+      return arr1[1];
+    }
+    return arr1[0];
+  } else {
+    arr1 = arr[0].split('.');
+    if (arr1[0] == 'www') {
+      return arr1[1];
+    }
+    return arr1[0];
+  }
+}
+console.log(
+  domainName(
+    'https://www.codewars.com/kata/514a024011ea4fb54200004b/train/javascript'
+  )
+);
+*/
+
+function zeros(n) {
+  let sum = 0;
+  let check = 0;
+  for (let i = 0; i <= n; i += 5) {
+    if (i % 5 == 0) {
+      sum++;
+      check = i;
+      while (check > 24) {
+        check = check / 5;
+        if (check % 5 == 0) {
+          sum++;
+        }
+      }
+    }
+  }
+  return sum - 1;
+}
+
+console.log(zeros(1000));
